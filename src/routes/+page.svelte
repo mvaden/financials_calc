@@ -1,2 +1,21 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<h1>Welcome to Investment Calculator</h1>
+<p>Below is a calculator for estimating interest compounded investments over time. Simply enter in an amount, followed by the term (years) and the interest rate for that term.</p>
+<div>
+   <form on:submit|preventDefault={submitForm}>
+      <div>
+         <label for="principal">Amount:</label>
+         <input type="number" id="principal" name="principal" bind:value={principal} min="1" max="1000000" required/>
+      </div>
+      <div>
+         <label for="interestRate">Interest:</label>
+         <input type="number" id="interestRate" name="interestRate" bind:value={interestRate} min="0" step="any" required/>
+      </div>
+      <div>
+         <label for="years">Term:</label>
+         <input type="number" id="years" name="years" bind:value={years} min="1" max="50" required/>
+      </div>
+      <div>
+         <input type="submit" value="submit" />
+      </div>
+   </form>
+</div>
